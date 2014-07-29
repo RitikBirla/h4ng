@@ -1,8 +1,12 @@
 {
-  "name": "folder_h4ng",
+  "name": "folder_hartz-4-namen-generator",
   "version": "0.0.1",
   "description": "sozial kritik",
   "author": "",
+  "repository": { 
+    "type" : "git",
+    "url" : "https://github.com/FedericoElles/h4ng.git"
+  },
   "license": "MIT",
   "dependencies": {}
 }
