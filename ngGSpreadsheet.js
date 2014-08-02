@@ -17,7 +17,19 @@ angular.
       var deferred = $q.defer();
       $http.jsonp(url).success(function(data, status) {
 		  //TODO use converter function
-          deferred.resolve(data);
+		  d = data.feed.entry;
+		  var results = {};
+		  for(var i=0,imax=d.length;i<imax;i+=1) {
+			  entry = d[i].content.$t.replace(/ /g,'').split(",");
+			  for(var j=0, jmax=entry.length;j<jmax;j+=1) {
+				  pair = entry[j].split(":");
+				  key = pair[0];
+				  value = pair[1];
+				  if (!results[key]) {results[key] = []}
+				  results[key].push(value);				  
+			  }
+		  }
+          deferred.resolve(results);
         }).
         error(function(data, status) {
           deferred.reject(data);
